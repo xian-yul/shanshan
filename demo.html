@@ -32,7 +32,14 @@
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: #ffffff;
         }
+        #left-button{
+		 background-color: #FFB6C1
+		}
+        #right-button{
+		 background-color: #0000FF
+		}
 
         /* 内容区域样式 */
         .content {
@@ -57,22 +64,23 @@
                 height: auto;
             }
         }
+
     </style>
 </head>
 <body>
-    <!-- 内容区域 -->
-    <div class="content">
-        <img id="content-image" src="1111.jpg">
-        <p id="content-text">可以做我的妈妈吗？</p>
-    </div>
+<!-- 内容区域 -->
+<div class="content">
+    <img id="content-image" src="1111.jpg">
+    <p id="content-text">可以做我的妈妈吗？</p>
+</div>
 
-    <!-- 按钮容器 -->
-    <div class="button-container">
-        <button id="left-button" class="button">可以</button>
-        <button id="right-button" class="button">不要</button>
-    </div>
+<!-- 按钮容器 -->
+<div class="button-container">
+    <button id="left-button" class="button">可以</button>
+    <button id="right-button" class="button">不要</button>
+</div>
 
-    <script>
+<script>
         // 获取按钮和内容元素
         const leftButton = document.getElementById('left-button');
         const rightButton = document.getElementById('right-button');
@@ -146,6 +154,7 @@
             contentImage.src = "5555.jpg";
             contentText.textContent = "!!!超喜欢 F杯珊珊公主";
         });
-    </script>
+
+</script>
 </body>
 </html>
