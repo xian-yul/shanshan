@@ -1,104 +1,152 @@
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>珊珊</title>
-    <style type="text/css">
-		#imgtext_div{
-			display: flex;
-            justify-content: center;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珊珊大王</title>
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin: 10px;
-
-		    }
-		#button_div{
-			display: flex;
             justify-content: center;
-            align-items: center;
-            margin: 10px;
-		}
-		#myH1{}
-		#ok{
-			background-color: #ff33e0;
-			color: #ffffff;
-			width: 100px;
-			height: 40px;
-		}
-		#no{
-			background-color: #33b5ff;
-			color: #ffffff;
-			width: 100px;
-			height: 40px;
-		}
-		/*#ok_div{
-			width: 300px;
-			height: 90px;
-			margin: 0 auto;
-		}
-		#no_div{
-			width: 300px;
-			height: 90px;
-			margin: 0 auto;
-		}*/
-		.button{
-			padding: 10px 20px;
-			font-size: 16px;
-			transition: all 0.3s ease;
-		}
-		.button + .button{
-			margin-left : 25px
-		}
-		.onesmall {
-            font-size: 12px;
-            padding: 5px 10px;
-        }
-        .onelarge {
-            font-size: 20px;
-            padding: 15px 30px;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
 
+        /* 按钮容器样式 */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        /* 按钮样式 */
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* 内容区域样式 */
+        .content {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 600px) {
+            .button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            .content img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
-<div>
-    <div id="imgtext_div">
-        <img src="1111.jpg" id="myImage" alt="" style="width:300px;height:auto;">
+    <!-- 内容区域 -->
+    <div class="content">
+        <img id="content-image" src="1111.jpg">
+        <p id="content-text">可以做我的妈妈吗？</p>
     </div>
-    <div id="imgtext_div">
-        <h1 id="myH1">1</h1>
-    </div>
-    <div id="button_div">
-        <button id="ok" onclick="changeContent()" class="button">可以</button>
-        <button id="no" class="button">不要</button>
-    </div>
-</div>
-<script>
-      let no_count = 0;
-      document.getElementById("no").addEventListener("click",function(){
-      	no_count++;
-      	if(no_count == 1){
-         document.getElementById("myImage").src = "2222.jpg";
-         document.getElementById("no").innerText = "？你认真的吗...."
-      	}else if(no_count == 2){
-         document.getElementById("myImage").src = "3333.jpg";	
-         document.getElementById("no").innerText = "要不再想想?"	
-      	}else if(no_count == 3){
-         document.getElementById("myImage").src = "4444.jpg";
-         document.getElementById("no").innerText = "不许选这个!"	
-      	}else{
-         document.getElementById("no").innerText = "我会很伤心"	
-      	}
-      });
-     function changeContent() {
-     	document.getElementById('myH1').innerHTML = '！！！喜欢你！！(≧∇≦)ﾉ';
-     	document.getElementById("myImage").src = "5555.jpg";
-     	document.getElementById('myH1').innerHTML = '！！！喜欢你！！(≧∇≦)ﾉ';
-        document.getElementById('ok').style.display = "none";
-        document.getElementById('no').style.display = "none";
-     }
 
-</script>
+    <!-- 按钮容器 -->
+    <div class="button-container">
+        <button id="left-button" class="button">可以</button>
+        <button id="right-button" class="button">不要</button>
+    </div>
+
+    <script>
+        // 获取按钮和内容元素
+        const leftButton = document.getElementById('left-button');
+        const rightButton = document.getElementById('right-button');
+        const contentImage = document.getElementById('content-image');
+        const contentText = document.getElementById('content-text');
+
+        // 定义内容变化的数据
+        const contents = [
+             {
+                buttonText: "？你认真的吗....",
+                imageUrl: "2222.jpg",
+                text: "可以做我的妈妈吗？"
+            },
+            {
+                buttonText: "要不再想想?",
+                imageUrl: "2222.jpg",
+                text: "可以做我的妈妈吗？"
+            },
+            {
+                buttonText: "不许选这个!",
+                imageUrl: "3333.jpg",
+                text: "可以做我的妈妈吗？"
+            },
+            {
+                buttonText: "我会很伤心",
+                imageUrl: "4444.jpg",
+                text: "可以做我的妈妈吗？"
+            },
+            {
+                buttonText: "我会很伤心",
+                imageUrl: "4444.jpg",
+                text: "可以做我的妈妈吗？"
+            }
+        ];
+
+        // 定义一个变量来记录点击次数
+        let clickCount = 0;
+
+        // 为右侧按钮添加点击事件
+        rightButton.addEventListener('click', () => {
+            if (clickCount < 5) {
+                // 更新按钮大小
+                leftButton.style.fontSize = `${16 + clickCount * 2}px`;
+                leftButton.style.padding = `10px ${20 + clickCount * 5}px`;
+
+                rightButton.style.fontSize = `${16 - clickCount * 2}px`;
+                rightButton.style.padding = `10px ${20 - clickCount * 5}px`;
+
+                // 更新右侧按钮文字、图片和文本内容
+                const currentContent = contents[clickCount];
+                rightButton.textContent = currentContent.buttonText;
+                contentImage.src = currentContent.imageUrl;
+                contentText.textContent = currentContent.text;
+
+                // 增加点击次数
+                clickCount++;
+            }
+
+            // 如果点击次数达到5次，隐藏右侧按钮
+            if (clickCount === 5) {
+                rightButton.style.display = 'none';
+            }
+        });
+
+        // 为左侧按钮添加点击事件
+        leftButton.addEventListener('click', () => {
+            // 隐藏两个按钮
+            leftButton.style.display = 'none';
+            rightButton.style.display = 'none';
+
+            // 更新图片和文本
+            contentImage.src = "5555.jpg";
+            contentText.textContent = "!!!超喜欢 F杯珊珊公主";
+        });
+    </script>
 </body>
 </html>
